@@ -2,24 +2,24 @@
  * Async/await with forEach and error handling
  */
 function processElem(elem) {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			if (elem === 4) {
-				reject('is 4!');
-			} else {
-				console.log(`Element ${elem} processed`);
-				resolve(elem);
-			}
-		}, Math.floor(Math.random() * 2000)); // Between 0 and 2 random seconds
-	});
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (elem === 4) {
+        reject('is 4!');
+      } else {
+        console.log(`Element ${elem} processed`);
+        resolve(elem);
+      }
+    }, Math.floor(Math.random() * 2000)); // Between 0 and 2 random seconds
+  });
 }
 
 async function test() {
-	[1, 2, 3, 4, 5].forEach(async elem => {
-		console.log(`Before ${elem}`);
-		await processElem(elem);
-		console.log(`After ${elem}`);
-	});
+  [1, 2, 3, 4, 5].forEach(async elem => {
+    console.log(`Before ${elem}`);
+    await processElem(elem);
+    console.log(`After ${elem}`);
+  });
 }
 
 test().catch((err) => {
@@ -51,21 +51,21 @@ test().catch((err) => {
  * Async/await with forEach and catching errors
  */
 async function test2() {
-	[1, 2, 3, 4, 5].forEach(async elem => {
-		async function run() {
-			console.log(`Before ${elem}`);
-			await processElem(elem);
-			console.log(`After ${elem}`);
-		}
+  [1, 2, 3, 4, 5].forEach(async elem => {
+    async function run() {
+      console.log(`Before ${elem}`);
+      await processElem(elem);
+      console.log(`After ${elem}`);
+    }
 
-		run().catch(err => {
-			console.log(`Rejected because ${err}`);
-		});
-	});
+    run().catch(err => {
+      console.log(`Rejected because ${err}`);
+    });
+  });
 }
 
 test2().catch(err => {
-	console.log(`Test function 2 fails because ${err}`);
+  console.log(`Test function 2 fails because ${err}`);
 });
 
 /**

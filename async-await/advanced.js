@@ -7,18 +7,18 @@
  */
 let AsyncFunction = Object.getPrototypeOf(async function() {}).constructor;
 let asyncFunctionInstance = new AsyncFunction(
-	'firstParam',
-	'secondParam',
-	'console.log(`${firstParam}, ${secondParam}`); return `done!`;'
+  'firstParam',
+  'secondParam',
+  'console.log(`${firstParam}, ${secondParam}`); return `done!`;'
 );
 
 asyncFunctionInstance('Hello', 'World!')
-	.then(result => {
-		console.log(`Result is ${result}`);
-	})
-	.catch(err => {
-		console.log(`Error because ${err}`);
-	});
+  .then(result => {
+    console.log(`Result is ${result}`);
+  })
+  .catch(err => {
+    console.log(`Error because ${err}`);
+  });
 
 /**
  * [Output]
@@ -39,19 +39,19 @@ Result is done!
  * Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
  */
 async function asyncfunctionResolve() {
-	return 10;
+  return 10;
 }
 
 asyncfunctionResolve().then(result => {
-	console.log(`Resolved with value ${result}`);
+  console.log(`Resolved with value ${result}`);
 });
 
 async function asyncfunctionReject() {
-	throw new Error('Rejected');
+  throw new Error('Rejected');
 }
 
 asyncfunctionReject().catch(err => {
-	console.log(`Rejecte because ${err}`);
+  console.log(`Rejecte because ${err}`);
 });
 
 /**
@@ -69,31 +69,31 @@ Rejecte because Error: Rejected
  * until a Promise is fulfilled or rejected.
  */
 function resolveAfter2Seconds(x) {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve(x);
-		}, 2000);
-	});
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
 }
 
 async function f1() {
-	var x = await resolveAfter2Seconds(10);
-	console.log(x); // 10
+  var x = await resolveAfter2Seconds(10);
+  console.log(x); // 10
 }
 
 async function f2() {
-	var y = await 20; // If the value is not a Promise, it converts the value to a resolved Promise, and waits for it.
-	console.log(y); // 20
+  var y = await 20; // If the value is not a Promise, it converts the value to a resolved Promise, and waits for it.
+  console.log(y); // 20
 }
 
 async function test() {
-	console.log('Starting test function...');
-	console.log('Before f1');
-	f1();
-	console.log('After f1 and before f2');
-	await f2();
-	console.log('After f2');
-	console.log('Ending test function...');
+  console.log('Starting test function...');
+  console.log('Before f1');
+  f1();
+  console.log('After f1 and before f2');
+  await f2();
+  console.log('After f2');
+  console.log('Ending test function...');
 }
 
 test();
@@ -120,9 +120,9 @@ function f3() {
 }
 
 async function test2() {
-	await f1();
-	await f2();
-	await f3();
+  await f1();
+  await f2();
+  await f3();
 }
 
 test2().catch((err) => {
@@ -142,25 +142,25 @@ test2().catch((err) => {
  * Complex situation
  */
 function f4() {
-	return [1, 2, 3, 4, 5];
+  return [1, 2, 3, 4, 5];
 }
 
 function processElem(elem) {
-	return new Promise(resolve => {
-		setTimeout(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
       console.log(`Element ${elem} processed`);
       resolve();
-		}, Math.floor(Math.random() * 2000)); // Between 0 and 2 random seconds
-	});
+    }, Math.floor(Math.random() * 2000)); // Between 0 and 2 random seconds
+  });
 }
 
 async function test3() {
-	await f1();
-	await f2();
-	let array = await f4();
-	console.log(array);
+  await f1();
+  await f2();
+  let array = await f4();
+  console.log(array);
 
-  for(let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     await processElem(array[i]);
   }
 
@@ -170,11 +170,11 @@ async function test3() {
    * The typical use case is to execute side effects at the end of a chain.
    */
   console.log();
-	array.forEach(async elem => {
+  array.forEach(async elem => {
     console.log(`Before ${elem}`);
-		await processElem(elem);
+    await processElem(elem);
     console.log(`After ${elem}`);
-	});
+  });
 }
 
 test3();
