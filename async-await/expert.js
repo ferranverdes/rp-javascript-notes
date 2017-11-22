@@ -22,9 +22,9 @@ async function test() {
 	});
 }
 
-/*test().catch((err) => {
+test().catch((err) => {
   console.log(`Test function fails because ${err}`);
-});*/
+});
 
 /**
  * [Output]
@@ -47,6 +47,9 @@ async function test() {
 
  */
 
+/**
+ * Async/await with forEach and catching errors
+ */
 async function test2() {
 	[1, 2, 3, 4, 5].forEach(async elem => {
 		async function run() {
