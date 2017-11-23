@@ -51,7 +51,7 @@ test().catch((err) => {
  * Async/await with forEach and catching errors
  */
 async function test2() {
-  [1, 2, 3, 4, 5].forEach(async elem => {
+  [1, 2, 3, 4, 5].forEach(elem => {
     async function run() {
       console.log(`Before ${elem}`);
       await processElem(elem);
