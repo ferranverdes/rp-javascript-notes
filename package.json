@@ -1,0 +1,39 @@
+{
+  "name": "javascript-notes",
+  "version": "1.0.0",
+  "description": "Personal notes about Javascript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "mongoose": "^5.0.0-rc0",
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/mocha": "^2.2.45",
+    "@types/mongodb": "^2.2.18",
+    "@types/mongoose": "^4.7.31",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "ts-node": "^4.1.0"
+  },
+  "scripts": {
+    "start": "echo \"Error: no test specified yet\" && exit 1",
+    "build": "rimraf dist/ && cpx \"src/**/!(*.ts|*.tsx|*.map)\" dist/ && npm run build-ts",
+    "build-ts": "tsc",
+    "dev": "echo \"Error: no test specified yet\" && exit 1",
+    "test": "nodemon --watch test/ --ext '*' --exec './node_modules/.bin/mocha --require ts-node/register ./test/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferranverdes/javascript-notes.git"
+  },
+  "author": "Ferran Verdés",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ferranverdes/javascript-notes/issues"
+  },
+  "homepage": "https://github.com/ferranverdes/javascript-notes#readme"
+}
