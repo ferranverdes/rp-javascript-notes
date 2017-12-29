@@ -10,9 +10,14 @@ export const AddressSchema = new mongoose.Schema({
 	}
 });
 
-class Address {
+export class Address {
 	public address: string;
 	public num: number | undefined;
+
+	constructor(address: string, num?: number) {
+		this.address = address;
+		this.num = num;
+	}
 
 	getFullAddress() {
 		return `${this.address}, ${this.num}`;
