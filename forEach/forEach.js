@@ -4,8 +4,7 @@ var arr = [1, 2, 3, 4, 5]
 console.log('Inici');
 
 arr.forEach((item) => {
-	// Perquè no sigui sequencial necessita alguna cosa que l'execució sigui posada a l'event loop
-	// Per exemple un timeout
+	// Perquè no sigui sequencial necessita alguna cosa que l'execució sigui posada a l'event loop i aquest no és el cas
 	console.log(item)
 })
 
@@ -18,6 +17,7 @@ var arr = [1, 2, 3, 4, 5]
 console.log('Inici 2');
 
 arr.forEach((item) => {
+	// Aquest sí que és el cas, ja que la funció setTimeout és asíncrona
 	setTimeout(() => {
 		console.log(item)	
 	}, 0)	
@@ -36,7 +36,7 @@ console.log('Inici 3');
 
 arr.forEach(async (item) => {
 	// Amb async/await només es garanteix que els número siguin processats sequencialment.
-	// Però quan hi ha una operació asíncrona com una promesa, es posa a l'event loop i es segueix executant el codi
+	// Però quan hi ha una operació asíncrona com una promesa, es posa a l'event loop i es segueix executant el codi principal
 	await waitFor(0);
 	console.log(item);
 })
