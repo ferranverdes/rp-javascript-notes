@@ -1,3 +1,3 @@
 # javascript-notes
 
-Personal notes about Javascript
+Personal notes about Javascript world
