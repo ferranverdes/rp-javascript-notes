@@ -1,0 +1,26 @@
+### React ###
+Es una librería de código abierto desarollada en Javascript para crear interfaces
+de usuario.
+
+El estado es inmutable. La función setState es asíncrona, ya que React decide
+en que momento se debe cambiar el estado para obtener el mejor rendimiento posible.
+Una vez invocada, no sabemos en que momento se ejecutará.
+
+React ofrece un flujo de datos unidireccional, los datos fluyen únicamente de padre a hijo.
+El componente padre pasa su estado hacia abajo y provoca que todos sus componentes
+hijos se vuelvan a renderizar.
+
+
+### JSX ###
+1) Un código que se preprocesa y se convierte en Javascript.
+
+const element = <h1 hey={'there'}>Hello, world</h1>;
+
+Sería:
+
+var element = React.createElement("h1", { hey: 'there' }, "Hello, world");
+
+2) Una buena práctica es escribir las props en orden alfabético.
+
+### Atom packages ###
+linter-eslint --> Cal crear fitxer al root .eslintrc amb la configuració
