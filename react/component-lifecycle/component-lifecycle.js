@@ -40,12 +40,29 @@ class App extends Component {
 		// Ideal para realizar llamadas a APIs, suscribirse a eventos, hacer setInterval.
 		// Llamar a setState en este método implica un extra rendering, pero sucederá
 		// antes de que el navegador actualice la pantalla y sea visible por el usuario.
-	}
+	};
 
 	handleClick = () => {
 		this.setState({
 			initialMessage: 'mensaje cambiado'
 		});
+	};
+
+	componentWillReceiveProps = nextProps => {
+		console.log('componentWillReceiveProps');
+		// Se ejecuta siempre que el ciclo de actualización haya sido iniciado por recibir
+		// nuevas props.
+		// El valor de nextProps no importa, es decir, nextProps no significa que sean
+		// distintas que las anteriores sino que pueden ser exactamente las mismas.
+	};
+
+	shouldComponentUpdate = (nextProps, nextState) => {
+		console.log('shouldComponentUpdate');
+		// En el caso que el ciclo de actualización haya sido iniciado por un cambio de
+		// state en el propio compomente, shouldComponentUpdate será el primer método
+		// que se ejecutará.
+		// Su finalidad es decidir si se debe ejecutar de nuevo el método render del
+		// componente y por lo tanto, debe devolver un valor boolean (por defecto true)
 	};
 
 	render() {
