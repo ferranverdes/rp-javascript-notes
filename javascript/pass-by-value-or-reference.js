@@ -58,10 +58,12 @@ C	|	      20   		|	  	        	|		          	|	          		|		          	|
  	|_______________|_______________|_______________|_______________|_______________|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
-D	|    name B2		|	  	        	|		          	|	          		|		          	|
+D	|		          	|	  	        	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
 					1								2								3								4								5
+
+	Javascript Engine
 
 	Before:
 	primitiveValue A1
@@ -69,11 +71,11 @@ D	|    name B2		|	  	        	|		          	|	          		|		          	|
 
 	Function params:
 	primitive C1
-	obj D1
+	obj B1
 
 	Function body:
-	primitive = 20;					C1 '10' change for 20
-	obj.name = 'Doe';				D1 --> name B2 --> B2 'John' change for 'Doe'
+	primitive = 20;					C1 '10' change for '20'
+	obj.name = 'Doe';				B1 --> name B2 --> B2 'John' change for 'Doe'
 
 	After:
 	primitiveValue A1
@@ -119,11 +121,13 @@ C	|	      20   		|	  	        	|		          	|	          		|		          	|
  	|	          		|	  	        	|		          	|	          		|		          	|
  	|_______________|_______________|_______________|_______________|_______________|
 	|	          		|	  	        	|		          	|	          		|		          	|
-	|	  *name B2*		|	  	        	|		          	|	          		|		          	|
+	|	  						|	  	        	|		          	|	          		|		          	|
 D	|    name D2		|	  	 Doe     	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
 					1								2								3								4								5
+
+	Javascript Engine
 
 	Before:
 	primitiveValue A1
@@ -131,12 +135,12 @@ D	|    name D2		|	  	 Doe     	|		          	|	          		|		          	|
 
 	Function params:
 	primitive C1
-	obj D1
+	obj *B1* D1
 
 	Function body:
-	primitive = 20;					C1 '10' change for 20
+	primitive = 20;					C1 '10' change for '20'
 	obj = {
-		name: 'Doe'						D1 'name B2' change for 'name D2'
+		name: 'Doe'						obj 'B1' change for 'D1'
 	};
 
 	After:
@@ -186,10 +190,12 @@ C	|	      20   		|	  	        	|		          	|	          		|		          	|
  	|_______________|_______________|_______________|_______________|_______________|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
-D	|	 subObject B2	|	     Doe   		|		          	|	          		|		          	|
+D	|	          		|	     Doe   		|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
 					1								2								3								4								5
+
+	Javascript Engine
 
 	Before:
 	primitiveValue A1
@@ -197,12 +203,12 @@ D	|	 subObject B2	|	     Doe   		|		          	|	          		|		          	|
 
 	Function params:
 	primitive C1
-	obj D1
+	obj B1
 
 	Function body:
-	primitive = 20;					C1 '10' change for 20
+	primitive = 20;					C1 '10' change for '20'
 	obj.subObject = {
-		name: 'Doe'						D1 --> subObject B2 --> B2 'name B3' change for 'name D2'
+		name: 'Doe'						B1 --> subObject B2 --> B2 'name B3' change for 'name D2'
 	};
 
 	After:
@@ -237,7 +243,7 @@ console.log('After call fourth: ', primitiveValue, object, '\n');
 /**
 	 _______________ _______________ _______________ _______________ _______________
 	|	          		|	  	        	|		          	|	          		|		          	|
-	|	          		|	  	        	|		          	|	 	*name B3*		|		          	|
+	|	          		|	  	        	|		          	|	 							|		          	|
 A	|	      10   		|	  	        	|		          	|	   name A5		|		   Doe     	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
@@ -253,10 +259,12 @@ C	|	      20   		|	  	        	|		          	|	          		|		          	|
  	|_______________|_______________|_______________|_______________|_______________|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
-D	|	 subObject B2	|	     		   		|		          	|	          		|		          	|
+D	|	 							|	     		   		|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
 					1								2								3								4								5
+
+	Javascript Engine
 
 	Before:
 	primitiveValue A1
@@ -264,13 +272,13 @@ D	|	 subObject B2	|	     		   		|		          	|	          		|		          	|
 
 	Function params:
 	primitive C1
-	obj D1
+	obj B1
 
 	Function body:
-	subObject A4
-	primitive = 20;					C1 '10' change for 20
+	subObject *B2* A4
+	primitive = 20;					C1 '10' change for '20'
 	subObject = {
-		name: 'Doe'						A4 'name B3' change for 'name A5'
+		name: 'Doe'						subObject 'B2' change for 'A4'
 	};
 
 	After:
@@ -319,7 +327,7 @@ C	|	      20   		|	  	        	|		          	|	          		|		          	|
  	|_______________|_______________|_______________|_______________|_______________|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
-D	|	 subObject B2	|	     		   		|		          	|	          		|		          	|
+D	|	          		|	     		   		|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
 					1								2								3								4								5
@@ -330,12 +338,12 @@ D	|	 subObject B2	|	     		   		|		          	|	          		|		          	|
 
 	Function params:
 	primitive C1
-	obj D1
+	obj B1
 
 	Function body:
-	subObject A4
-	primitive = 20;						C1 '10' change for 20
-	subObject.name = 'Doe';		A4 --> name B3 --> B3 'John' change for 'Doe'
+	subObject B2
+	primitive = 20;						C1 '10' change for '20'
+	subObject.name = 'Doe';		B2 --> name B3 --> B3 'John' change for 'Doe'
 
 	After:
 	primitiveValue A1
@@ -383,7 +391,7 @@ C	|	      20   		|	  	        	|		          	|	          		|		          	|
  	|_______________|_______________|_______________|_______________|_______________|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
-D	|	 subObject B2	|	     		   		|		          	|	          		|		          	|
+D	|	          		|	     		   		|		          	|	          		|		          	|
 	|	          		|	  	        	|		          	|	          		|		          	|
 	|_______________|_______________|_______________|_______________|_______________|
 					1								2								3								4								5
@@ -394,11 +402,11 @@ D	|	 subObject B2	|	     		   		|		          	|	          		|		          	|
 
 	Function params:
 	primitive C1
-	obj D1
+	obj B1
 
 	Function body:
 	name B3
-	primitive = 20;						C1 '10' change for 20
+	primitive = 20;						C1 '10' change for '20'
 	name = 'Doe';							B3 'John' change for 'Doe'
 
 	After:
