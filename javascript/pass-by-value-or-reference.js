@@ -41,7 +41,7 @@ console.log('After call first: ', primitiveValue, object, '\n');
 
 /**
 
-RAM Memory
+	RAM Memory
    _______________ _______________ _______________ _______________ _______________
   |               |               |               |               |               |
   |               |               |               |               |               |
@@ -107,7 +107,7 @@ console.log('After call second: ', primitiveValue, object, '\n');
 
 /**
 
-RAM Memory
+	RAM Memory
    _______________ _______________ _______________ _______________ _______________
   |               |               |               |               |               |
   |               |               |               |               |               |
@@ -177,7 +177,7 @@ console.log('After call third: ', primitiveValue, object, '\n');
 
 /**
 
-RAM Memory
+	RAM Memory
    _______________ _______________ _______________ _______________ _______________
   |               |               |               |               |               |
   |               |               |               |               |               |
@@ -248,7 +248,7 @@ console.log('After call fourth: ', primitiveValue, object, '\n');
 
 /**
 
-RAM Memory
+	RAM Memory
    _______________ _______________ _______________ _______________ _______________
   |               |               |               |               |               |
   |               |               |               |               |               |
@@ -318,7 +318,7 @@ console.log('After call fifth: ', primitiveValue, object, '\n');
 
 /**
 
-RAM Memory
+	RAM Memory
    _______________ _______________ _______________ _______________ _______________
   |               |               |               |               |               |
   |               |               |               |               |               |
@@ -354,8 +354,8 @@ D |               |               |               |               |             
 
 	Function body:
 	subObject B2
-	primitive = 20;			C1 '10' change for '20'
-	subObject.name = 'Doe';			B2 --> name B3 --> B3 'John' change for 'Doe'
+	primitive = 20;				C1 '10' change for '20'
+	subObject.name = 'Doe';		B2 --> name B3 --> B3 'John' change for 'Doe'
 
 	After:
 	primitiveValue A1
@@ -386,7 +386,7 @@ console.log('After call sixth: ', primitiveValue, object, '\n');
 
 /**
 
-RAM Memory
+	RAM Memory
    _______________ _______________ _______________ _______________ _______________
   |               |               |               |               |               |
   |               |               |               |               |               |
@@ -423,7 +423,7 @@ D |               |               |               |               |             
 	Function body:
 	name B3
 	primitive = 20;				C1 '10' change for '20'
-	name = 'Doe';					B3 'John' change for 'Doe'
+	name = 'Doe';			B3 'John' change for 'Doe'
 
 	After:
 	primitiveValue A1
