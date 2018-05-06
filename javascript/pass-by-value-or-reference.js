@@ -355,7 +355,7 @@ D |               |               |               |               |             
 	Function body:
 	subObject B2
 	primitive = 20;				C1 '10' change for '20'
-	subObject.name = 'Doe';		B2 --> name B3 --> B3 'John' change for 'Doe'
+	subObject.name = 'Doe';			B2 --> name B3 --> B3 'John' change for 'Doe'
 
 	After:
 	primitiveValue A1
@@ -423,7 +423,7 @@ D |               |               |               |               |             
 	Function body:
 	name B3
 	primitive = 20;				C1 '10' change for '20'
-	name = 'Doe';			B3 'John' change for 'Doe'
+	name = 'Doe';				B3 'John' change for 'Doe'
 
 	After:
 	primitiveValue A1
